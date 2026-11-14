@@ -1,0 +1,733 @@
+/* ========================================
+   ÁREA DE AGENDAMENTO
+======================================== */
+
+.area-agendamento {
+    position: relative;
+    margin: 30px 0;
+  
+    animation: abrirFormulario 0.6s ease forwards;
+  }
+  
+  
+  /* ========================================
+     CARD PRINCIPAL DO FORMULÁRIO
+  ======================================== */
+  
+  .formulario-consulta {
+    position: relative;
+    overflow: hidden;
+  
+    padding: 30px;
+  
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(240, 249, 255, 0.95)
+    );
+  
+    border: 2px solid #dbeafe;
+    border-radius: 28px;
+  
+    box-shadow:
+      0 15px 40px rgba(19, 69, 92, 0.08),
+      0 25px 60px rgba(37, 99, 235, 0.08);
+  }
+  
+  
+  /* ========================================
+     DECORAÇÕES DO CARD
+  ======================================== */
+  
+  .formulario-consulta::before {
+    content: "✦";
+  
+    position: absolute;
+    top: -50px;
+    right: 30px;
+  
+    font-size: 140px;
+  
+    color: #60a5fa;
+    opacity: 0.08;
+  
+    animation: flutuarDecoracao 5s ease-in-out infinite;
+  }
+  
+  .formulario-consulta::after {
+    content: "";
+  
+    position: absolute;
+    width: 180px;
+    height: 180px;
+  
+    left: -70px;
+    bottom: -90px;
+  
+    border-radius: 50%;
+  
+    background: #22c55e;
+    opacity: 0.05;
+  }
+  
+  
+  /* ========================================
+     CABEÇALHO DO AGENDAMENTO
+  ======================================== */
+  
+  .titulo-agendamento {
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  
+    padding: 22px;
+    margin-bottom: 28px;
+  
+    background: linear-gradient(
+      135deg,
+      #eff6ff,
+      #ffffff
+    );
+  
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+  
+    overflow: hidden;
+  }
+  
+  
+  /* Linha lateral decorativa */
+  
+  .titulo-agendamento::before {
+    content: "";
+  
+    position: absolute;
+  
+    left: 0;
+    top: 15%;
+    bottom: 15%;
+  
+    width: 6px;
+  
+    border-radius: 0 10px 10px 0;
+  
+    background: linear-gradient(
+      to bottom,
+      #1686a7,
+      #24a66a
+    );
+  }
+  
+  
+  /* Círculo decorativo */
+  
+  .titulo-agendamento::after {
+    content: "";
+  
+    position: absolute;
+  
+    width: 130px;
+    height: 130px;
+  
+    right: -45px;
+    bottom: -70px;
+  
+    border-radius: 50%;
+  
+    background: #2563eb;
+    opacity: 0.06;
+  }
+  
+  
+  /* ========================================
+     ÍCONE DO CALENDÁRIO
+  ======================================== */
+  
+  .icone-agendamento {
+    position: relative;
+    z-index: 2;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 65px;
+    height: 65px;
+  
+    border-radius: 18px;
+  
+    background: linear-gradient(
+      135deg,
+      #1686a7,
+      #24a66a
+    );
+  
+    font-size: 30px;
+  
+    box-shadow:
+      0 10px 25px rgba(22, 134, 167, 0.25);
+  
+    animation: balancarCalendario 3s ease-in-out infinite;
+  }
+  
+  
+  /* ========================================
+     TEXTO DO CABEÇALHO
+  ======================================== */
+  
+  .texto-agendamento {
+    position: relative;
+    z-index: 2;
+  
+    flex: 1;
+  }
+  
+  .texto-agendamento h2 {
+    margin: 0 0 6px;
+  
+    color: #173b5e;
+    font-size: 24px;
+  }
+  
+  .texto-agendamento p {
+    margin: 0;
+  
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  
+  /* ========================================
+     DECORAÇÕES DO CABEÇALHO
+  ======================================== */
+  
+  .decoracao-calendario {
+    position: absolute;
+  
+    top: 12px;
+    right: 20px;
+  
+    color: #60a5fa;
+    font-size: 25px;
+  
+    animation: girarEstrela 6s linear infinite;
+  }
+  
+  .decoracao-coracao {
+    position: absolute;
+  
+    right: 45px;
+    bottom: 12px;
+  
+    font-size: 20px;
+  
+    color: #24a66a;
+    opacity: 0.2;
+  
+    animation: pulsarCoracao 2s ease-in-out infinite;
+  }
+  
+  
+  /* ========================================
+     SUBTÍTULO DO FORMULÁRIO
+  ======================================== */
+  
+  .subtitulo-formulario {
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    margin-bottom: 20px;
+  }
+  
+  .subtitulo-formulario > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 45px;
+    height: 45px;
+  
+    background: #e8f5f9;
+  
+    border-radius: 14px;
+  
+    font-size: 20px;
+  }
+  
+  .subtitulo-formulario h3 {
+    margin: 0 0 4px;
+  
+    color: #173b5e;
+    font-size: 16px;
+  }
+  
+  .subtitulo-formulario p {
+    margin: 0;
+  
+    color: #94a3b8;
+    font-size: 13px;
+  }
+  
+  
+  /* ========================================
+     CAMPOS DA CONSULTA
+  ======================================== */
+  
+  .campos-consulta {
+    position: relative;
+    z-index: 1;
+  
+    display: grid;
+  
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+    gap: 18px;
+  }
+  
+  .campo-consulta {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 8px;
+  }
+  
+  .campo-consulta label {
+    color: #36546c;
+  
+    font-size: 13px;
+    font-weight: 700;
+  }
+  
+  .campo-consulta input {
+    width: 100%;
+  
+    box-sizing: border-box;
+  
+    padding: 14px 16px;
+  
+    background: white;
+  
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+  
+    outline: none;
+  
+    color: #334155;
+    font-size: 14px;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .campo-consulta input:hover {
+    border-color: #93c5fd;
+  }
+  
+  .campo-consulta input:focus {
+    border-color: #1686a7;
+  
+    box-shadow:
+      0 0 0 4px rgba(22, 134, 167, 0.1);
+  
+    transform: translateY(-2px);
+  }
+  
+  
+  /* ========================================
+     BOTÕES
+  ======================================== */
+  
+  .botoes-formulario {
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+    gap: 12px;
+  
+    margin-top: 25px;
+  }
+  
+  .botoes-formulario button {
+    border: none;
+  
+    padding: 14px 22px;
+  
+    border-radius: 14px;
+  
+    font-size: 14px;
+    font-weight: bold;
+  
+    cursor: pointer;
+  
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* Botão agendar */
+  
+  .botao-agendar {
+    color: white;
+  
+    background: linear-gradient(
+      135deg,
+      #1686a7,
+      #24a66a
+    );
+  
+    box-shadow:
+      0 10px 25px rgba(22, 134, 167, 0.2);
+  }
+  
+  .botao-agendar:hover {
+    transform: translateY(-3px) scale(1.02);
+  
+    box-shadow:
+      0 15px 30px rgba(22, 134, 167, 0.3);
+  }
+  
+  
+  /* Botão cancelar */
+  
+  .botao-cancelar {
+    background: #f1f5f9;
+    color: #64748b;
+  }
+  
+  .botao-cancelar:hover {
+    background: #e2e8f0;
+  
+    transform: translateY(-2px);
+  }
+  
+  
+  /* ========================================
+     CARDS DAS CONSULTAS
+  ======================================== */
+  
+  .cards-consultas {
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+  
+    gap: 20px;
+  
+    margin-top: 30px;
+  }
+  
+  .consulta-card {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 20px;
+  
+    padding: 25px;
+  
+    /* Fundo branco */
+    background: #ffffff;
+  
+    /* Borda */
+    border: 2px solid #dbeafe;
+  
+    border-radius: 20px;
+  
+    box-shadow:
+      0 8px 25px rgba(19, 69, 92, 0.08);
+  
+    overflow: hidden;
+  
+    animation: aparecerCard 0.6s ease both;
+  
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* Linha colorida lateral */
+  
+  .consulta-card::before {
+    content: "";
+  
+    position: absolute;
+  
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+  
+    width: 5px;
+  
+    background: linear-gradient(
+      to bottom,
+      #1686a7,
+      #24a66a
+    );
+  
+    border-radius: 0 10px 10px 0;
+  
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* Efeito ao passar o mouse */
+  
+  .consulta-card:hover {
+    transform: translateY(-8px);
+  
+    border-color: #8ed9e7;
+  
+    box-shadow:
+      0 18px 35px rgba(19, 69, 92, 0.14);
+  }
+  
+  .consulta-card:hover::before {
+    top: 10%;
+    bottom: 10%;
+  }
+  
+  
+  /* ========================================
+     DATA DA CONSULTA
+  ======================================== */
+  
+  .data-consulta {
+    min-width: 75px;
+    height: 85px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 16px;
+  
+    background: linear-gradient(
+      135deg,
+      #1686a7,
+      #24a66a
+    );
+  
+    color: white;
+  
+    box-shadow:
+      0 8px 18px rgba(22, 134, 167, 0.18);
+  }
+  
+  .data-consulta strong {
+    font-size: 25px;
+  }
+  
+  .data-consulta span {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  
+  /* ========================================
+     INFORMAÇÕES DA CONSULTA
+  ======================================== */
+  
+  .consulta-informacoes {
+    flex: 1;
+  }
+  
+  .consulta-informacoes h2 {
+    margin: 0 0 10px;
+  
+    color: #173b5e;
+    font-size: 18px;
+  }
+  
+  .consulta-informacoes p {
+    margin: 5px 0;
+  
+    color: #64748b;
+    font-size: 14px;
+  }
+  
+  
+  /* ========================================
+     BOTÃO DE DETALHES
+  ======================================== */
+  
+  .botao-detalhes {
+    border: none;
+  
+    padding: 10px 15px;
+  
+    border-radius: 10px;
+  
+    background: #e8f5f9;
+  
+    color: #1686a7;
+  
+    font-weight: bold;
+  
+    cursor: pointer;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .botao-detalhes:hover {
+    background: #1686a7;
+  
+    color: white;
+  
+    transform: scale(1.05);
+  }
+  
+  
+  /* ========================================
+     ANIMAÇÕES
+  ======================================== */
+  
+  /* Card do formulário aparece de cima */
+  
+  @keyframes abrirFormulario {
+    from {
+      opacity: 0;
+      transform: translateY(-25px) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  
+  /* Cards das consultas aparecem suavemente */
+  
+  @keyframes aparecerCard {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  /* Estrela grande flutuando */
+  
+  @keyframes flutuarDecoracao {
+    0%,
+    100% {
+      transform: translateY(0) rotate(10deg);
+    }
+  
+    50% {
+      transform: translateY(-15px) rotate(25deg);
+    }
+  }
+  
+  
+  /* Calendário balançando */
+  
+  @keyframes balancarCalendario {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+  
+    50% {
+      transform: rotate(5deg) scale(1.05);
+    }
+  }
+  
+  
+  /* Estrela girando */
+  
+  @keyframes girarEstrela {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  /* Coração pulsando */
+  
+  @keyframes pulsarCoracao {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+  
+    50% {
+      transform: scale(1.25);
+      opacity: 0.4;
+    }
+  }
+  
+  
+  /* ========================================
+     RESPONSIVIDADE
+  ======================================== */
+  
+  @media (max-width: 900px) {
+    .cards-consultas {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .campos-consulta {
+      grid-template-columns: 1fr;
+    }
+  
+    .titulo-agendamento {
+      align-items: flex-start;
+    }
+  
+    .consulta-card {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .formulario-consulta {
+      padding: 18px;
+    }
+  
+    .titulo-agendamento {
+      padding: 18px;
+      gap: 12px;
+    }
+  
+    .icone-agendamento {
+      min-width: 55px;
+      height: 55px;
+  
+      font-size: 25px;
+    }
+  
+    .texto-agendamento h2 {
+      font-size: 18px;
+    }
+  
+    .texto-agendamento p {
+      font-size: 12px;
+    }
+  
+    .botoes-formulario {
+      flex-direction: column;
+    }
+  
+    .botoes-formulario button {
+      width: 100%;
+    }
+  }
