@@ -20,9 +20,9 @@ export const generateToken = (payload: Payload): string => {
 
 
 export const verifyToken = (token: string) => {
-    try {
-        return jwt.verify(token, process.env.JWT_SECRET!);
-    } catch (err: any) {
-        return "Erro: " + err;
+    if (!process.env.JWT_SECRET) {
+        throw new Error("JWT_SECRET não definido");
     }
+
+    return jwt.verify(token, process.env.JWT_SECRET);
 };

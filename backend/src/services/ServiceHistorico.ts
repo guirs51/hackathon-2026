@@ -26,5 +26,34 @@ export class ServiceHistorico {
         }
     }
 
+        async update(id: number, data: Partial<HistoricoSaude>) {
+        try {
+            const historico = await this.HistorRepo.findOne({ where: { id_historico_saude: id } });
+            if (!historico) throw new Error("historico não encontrado");
+
+            const { ...rest } = data;
+
+            Object.assign(historico, rest);
+
+            return await this.HistorRepo.save(historico);
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+       async remove(id: number) {
+        try {
+            const material = await this.HistorRepo.findOne({ where: { id_historico_saude: id } });
+
+            if (!material) throw new Error("material não encontrado");
+
+            await this.HistorRepo.remove(material);
+
+            return { mensagem: "material deletado" };
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
 }
 

@@ -7,25 +7,25 @@ export class User {
     @PrimaryGeneratedColumn()
     idUser!: number
 
-    @Column({ length: 100 })
+    @Column({ length: 100, nullable: true })
     nameUser!: string
 
     @Column({ unique: true, length: 200 })
     emailUser!: string
 
-    @Column({ unique: true, length: 20 })
+    @Column({ unique: true, length: 20, nullable: true})
     cpfUser!: string
 
-    @Column({ length: 20 })
+    @Column({ length: 20, nullable: true })
     dataNascimento!: string
 
     @Column()
     senharUser!: string
 
-    @Column({ type: "varchar", length: 100 })
+    @Column({ type: "varchar", length: 100 , nullable: true})
     endereco!: string;
 
-    @Column({ length: 50 })
+    @Column({ length: 50, nullable: true })
     filicao!: string
 
     @OneToMany(() => HistoricoSaude, (historico) => historico.user)
