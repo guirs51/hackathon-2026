@@ -1,4 +1,4 @@
-import "./VisaoGeral.css";
+import "../css/VisaoGeral.css";
 
 function VisaoGeral({ mudarTela }) {
   return (
@@ -21,18 +21,11 @@ function VisaoGeral({ mudarTela }) {
           </h1>
 
           <p>
-            Aqui você pode acompanhar seus medicamentos,
-            consultas e informações importantes.
+           Que bom ter você aqui. Vamos cuidar da sua saúde juntos? Afinal, 
+          um pequeno cuidado hoje faz uma grande diferença amanhã!💚
           </p>
 
-          <button
-            className="botao-principal"
-            onClick={() => mudarTela("Medicamento")}
-          >
-            <span>💊</span>
-            Ver meus medicamentos
-            <strong>→</strong>
-          </button>
+       
         </div>
 
         <div className="ilustracao-saude">
@@ -64,22 +57,7 @@ function VisaoGeral({ mudarTela }) {
       </div>
 
       <section className="cards-resumo">
-        <div
-          className="card-resumo azul"
-          onClick={() => mudarTela("Medicamentos")}
-        >
-          <div className="decoracao-card">💊</div>
-
-          <div className="card-icone">💊</div>
-
-          <div>
-            <p>Medicamentos</p>
-            <h2>03</h2>
-            <span>Para hoje</span>
-          </div>
-
-          <div className="seta-card">→</div>
-        </div>
+    
 
         <div
           className="card-resumo verde"

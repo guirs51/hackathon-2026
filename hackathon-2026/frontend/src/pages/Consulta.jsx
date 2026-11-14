@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import "./Consulta.css";
+import "../css/consulta.css";
 
 function Consultas() {
   const [consultas, setConsultas] = useState([
@@ -88,7 +88,7 @@ function Consultas() {
         <div>
           <p className="titulo-pequeno">AGENDA DE SAÚDE</p>
 
-          <h1>📅 Minhas Consultas</h1>
+          <h1>📅 Historico de Consultas</h1>
 
           <span>
             Acompanhe e agende seus compromissos médicos.

@@ -1,0 +1,649 @@
+/* =========================================
+   PÁGINA DO USUÁRIO
+========================================= */
+
+.pagina-usuario {
+  position: relative;
+
+  width: 100%;
+  min-height: 100%;
+
+  padding: 30px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  animation: aparecerUsuario 0.6s ease;
+}
+
+/* DECORAÇÃO DE FUNDO */
+
+.pagina-usuario::before {
+  content: "♥";
+
+  position: absolute;
+
+  top: -40px;
+  right: 5%;
+
+  color: #24a66a;
+
+  font-size: 220px;
+
+  opacity: 0.04;
+
+  transform: rotate(-15deg);
+
+  pointer-events: none;
+
+  animation: flutuarDecoracao 6s ease-in-out infinite;
+}
+
+.pagina-usuario::after {
+  content: "✚";
+
+  position: absolute;
+
+  bottom: 5%;
+  left: 3%;
+
+  color: #1686a7;
+
+  font-size: 150px;
+
+  opacity: 0.05;
+
+  pointer-events: none;
+
+  animation: girarDecoracao 12s linear infinite;
+}
+
+
+/* =========================================
+   BOTÃO VOLTAR
+========================================= */
+
+.botao-voltar {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 25px;
+  padding: 11px 18px;
+
+  background: white;
+
+  border: 2px solid #dbeafe;
+  border-radius: 12px;
+
+  color: #1686a7;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(19, 69, 92, 0.06);
+
+  transition: all 0.3s ease;
+}
+
+.botao-voltar:hover {
+  transform: translateX(-5px);
+
+  background: #f0f9ff;
+
+  border-color: #8ed9e7;
+
+  box-shadow: 0 8px 20px rgba(19, 69, 92, 0.1);
+}
+
+
+/* =========================================
+   CARD DO PERFIL
+========================================= */
+
+.perfil-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+  padding: 35px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #f7fcfd
+  );
+
+  border: 2px solid #dbeafe;
+  border-radius: 28px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 15px 40px rgba(19, 69, 92, 0.08);
+
+  overflow: hidden;
+
+  animation: entrarCardPerfil 0.8s
+    cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* DECORAÇÃO DO CARD */
+
+.perfil-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  top: -180px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(36, 166, 106, 0.12),
+    transparent 70%
+  );
+
+  pointer-events: none;
+
+  animation: pulsarCirculo 5s ease-in-out infinite;
+}
+
+.perfil-card::after {
+  content: "✦";
+
+  position: absolute;
+
+  bottom: 20px;
+  right: 30px;
+
+  color: #1686a7;
+
+  font-size: 50px;
+
+  opacity: 0.08;
+
+  animation: girarEstrela 8s linear infinite;
+
+  pointer-events: none;
+}
+
+.perfil-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 22px 50px rgba(19, 69, 92, 0.12);
+}
+
+
+/* =========================================
+   TOPO DO PERFIL
+========================================= */
+
+.perfil-topo {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 2px solid #edf4f7;
+}
+
+.avatar-grande {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 90px;
+  height: 90px;
+
+  background: linear-gradient(
+    135deg,
+    #e5f6fb,
+    #dcfce7
+  );
+
+  border: 3px solid white;
+  border-radius: 50%;
+
+  font-size: 45px;
+
+  box-shadow:
+    0 8px 20px rgba(22, 134, 167, 0.15);
+
+  animation: flutuarAvatar 4s ease-in-out infinite;
+}
+
+.perfil-topo h1 {
+  margin: 0 0 6px;
+
+  color: #12304a;
+
+  font-size: 28px;
+}
+
+.perfil-topo p {
+  margin: 0;
+
+  color: #6b7f89;
+
+  font-size: 15px;
+}
+
+
+/* =========================================
+   CAMPOS DO PERFIL
+========================================= */
+
+.dados-perfil {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+
+  margin-top: 28px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  animation: aparecerCampo 0.5s ease both;
+}
+
+.campo:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.campo:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.campo:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.campo:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.campo:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.campo label {
+  color: #36546c;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.campo input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  box-sizing: border-box;
+
+  background: #f8fbfc;
+
+  border: 2px solid #e1edf2;
+  border-radius: 13px;
+
+  color: #12304a;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+/* QUANDO O CAMPO ESTÁ BLOQUEADO */
+
+.campo input:disabled {
+  background: #f4f7f8;
+
+  color: #6b7f89;
+
+  cursor: default;
+}
+
+/* QUANDO ESTÁ EM MODO DE EDIÇÃO */
+
+.campo input:not(:disabled):hover {
+  border-color: #8ed9e7;
+
+  background: white;
+}
+
+.campo input:not(:disabled):focus {
+  background: white;
+
+  border-color: #1686a7;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 0 4px rgba(22, 134, 167, 0.1);
+}
+
+
+/* =========================================
+   ÁREA DOS BOTÕES
+========================================= */
+
+.acoes-usuario {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 32px;
+  padding-top: 25px;
+
+  border-top: 2px solid #edf4f7;
+}
+
+.acoes-usuario button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 48px;
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 13px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.acoes-usuario button:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(1.03);
+}
+
+.acoes-usuario button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================
+   BOTÃO EDITAR
+========================================= */
+
+.botao-editar {
+  background: linear-gradient(
+    90deg,
+    #1686a7,
+    #249fbd
+  );
+
+  color: white;
+
+  box-shadow:
+    0 8px 18px rgba(22, 134, 167, 0.2);
+}
+
+
+/* =========================================
+   BOTÃO SALVAR
+========================================= */
+
+.botao-salvar {
+  background: linear-gradient(
+    90deg,
+    #16864d,
+    #24a66a
+  );
+
+  color: white;
+
+  box-shadow:
+    0 8px 18px rgba(36, 166, 106, 0.2);
+
+  animation: pulsarSalvar 2s ease-in-out infinite;
+}
+
+
+/* =========================================
+   BOTÃO SAIR
+========================================= */
+
+.botao-sair {
+  background: #f1f5f9;
+
+  color: #475569;
+
+  border: 2px solid #e2e8f0 !important;
+}
+
+.botao-sair:hover {
+  background: #e2e8f0;
+}
+
+
+/* =========================================
+   BOTÃO EXCLUIR
+========================================= */
+
+.botao-excluir {
+  margin-left: auto;
+
+  background: #fff1f2;
+
+  color: #dc2626;
+
+  border: 2px solid #fecaca !important;
+}
+
+.botao-excluir:hover {
+  background: #fee2e2;
+
+  box-shadow:
+    0 8px 20px rgba(220, 38, 38, 0.12);
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes aparecerUsuario {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes entrarCardPerfil {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes flutuarAvatar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes aparecerCampo {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulsarSalvar {
+  0%,
+  100% {
+    box-shadow:
+      0 8px 18px rgba(36, 166, 106, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 10px 28px rgba(36, 166, 106, 0.35);
+  }
+}
+
+@keyframes pulsarCirculo {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes flutuarDecoracao {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-15deg);
+  }
+
+  50% {
+    transform: translateY(15px) rotate(-5deg);
+  }
+}
+
+@keyframes girarDecoracao {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes girarEstrela {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE 📱
+========================================= */
+
+@media (max-width: 700px) {
+  .pagina-usuario {
+    padding: 20px 10px;
+  }
+
+  .perfil-card {
+    padding: 25px 20px;
+  }
+
+  .dados-perfil {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-topo {
+    align-items: flex-start;
+  }
+
+  .avatar-grande {
+    min-width: 75px;
+    height: 75px;
+
+    font-size: 38px;
+  }
+
+  .perfil-topo h1 {
+    font-size: 23px;
+  }
+
+  .acoes-usuario {
+    flex-direction: column;
+  }
+
+  .acoes-usuario button {
+    width: 100%;
+  }
+
+  .botao-excluir {
+    margin-left: 0;
+  }
+}
