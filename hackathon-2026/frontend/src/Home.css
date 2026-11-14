@@ -1,0 +1,943 @@
+/* =========================
+   CONFIGURAÇÃO GERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  background: #f3f8fb;
+  color: #12304a;
+  overflow-x: hidden;
+
+  animation: entradaHome 0.8s ease-out;
+}
+
+
+/* =========================
+   MENU LATERAL
+========================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  padding: 25px 15px;
+
+  background: linear-gradient(
+    180deg,
+    #062d52,
+    #07345b,
+    #082542
+  );
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  animation: entradaMenu 0.8s ease-out;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+  margin-bottom: 35px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo span span {
+  color: #58d4a3;
+}
+
+.logo-icone {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid #58d4a3;
+  border-radius: 12px;
+
+  color: #58d4a3;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+  color: #dbeaf4;
+
+  text-align: left;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(6px);
+}
+
+.menu button.ativo {
+  background: linear-gradient(
+    90deg,
+    #147db8,
+    #1d9c78
+  );
+
+  color: white;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   AJUDA
+========================= */
+
+.ajuda {
+  margin-top: auto;
+  padding: 15px;
+
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  gap: 10px;
+
+  transition: transform 0.3s ease;
+}
+
+.ajuda:hover {
+  transform: translateY(-5px);
+}
+
+.ajuda p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+  flex: 1;
+  padding: 25px 40px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+
+  animation: aparecerDeCima 0.7s ease-out both;
+}
+
+.busca {
+  width: 430px;
+  padding: 12px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: white;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 20px rgba(12, 67, 100, 0.08);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.busca:focus-within {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(22, 134, 167, 0.18);
+}
+
+.busca input {
+  width: 100%;
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notificacao {
+  border: none;
+  background: white;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+.notificacao:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #d9f1fa,
+    #dff5e9
+  );
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.dados-usuario {
+  display: flex;
+  flex-direction: column;
+}
+
+.dados-usuario span {
+  font-size: 12px;
+  color: #65808d;
+}
+
+
+/* =========================
+   BOAS-VINDAS
+========================= */
+
+.boas-vindas {
+  min-height: 220px;
+  padding: 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    120deg,
+    #eaf8fd,
+    #d7f0f8,
+    #dff6eb
+  );
+
+  position: relative;
+  overflow: hidden;
+
+  margin-bottom: 25px;
+
+  animation: aparecerDeBaixo 0.8s ease-out 0.15s both;
+
+  transition: transform 0.4s ease;
+}
+
+.boas-vindas:hover {
+  transform: translateY(-5px);
+}
+
+.boas-vindas h1 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.boas-vindas p {
+  max-width: 600px;
+  line-height: 1.5;
+  color: #4d6b76;
+}
+
+.pequeno-titulo {
+  color: #1686a7 !important;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.botao-principal {
+  padding: 13px 22px;
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #1686a7,
+    #24a66a
+  );
+
+  color: white;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.botao-principal:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(22, 134, 167, 0.25);
+}
+
+
+/* =========================
+   ILUSTRAÇÃO
+========================= */
+
+.ilustracao-saude {
+  width: 200px;
+  height: 180px;
+
+  position: relative;
+}
+
+.circulo-medico {
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #1686a7,
+    #24a66a
+  );
+
+  font-size: 55px;
+
+  box-shadow: 0 15px 35px rgba(22, 134, 167, 0.25);
+
+  animation: pulsar 3s ease-in-out infinite;
+}
+
+.icone-flutuante {
+  position: absolute;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 20px rgba(22, 60, 80, 0.12);
+
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+.icone1 {
+  top: 0;
+  left: 0;
+}
+
+.icone2 {
+  top: 5px;
+  right: 5px;
+  animation-delay: 1s;
+}
+
+.icone3 {
+  bottom: 0;
+  left: 5px;
+  animation-delay: 2s;
+}
+
+
+/* =========================
+   CARDS DE RESUMO
+========================= */
+
+.cards-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.card-resumo {
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: white;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(22, 60, 80, 0.07);
+
+  cursor: pointer;
+
+  animation: aparecerCard 0.6s ease-out both;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-resumo:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.card-resumo:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.card-resumo:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.card-resumo:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.card-resumo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(22, 134, 167, 0.15);
+}
+
+.card-resumo p,
+.card-resumo h2 {
+  margin: 0;
+}
+
+.card-resumo p {
+  font-size: 13px;
+  color: #66808a;
+}
+
+.card-resumo h2 {
+  margin: 5px 0;
+}
+
+.card-resumo span {
+  font-size: 11px;
+  color: #24a66a;
+}
+
+.card-icone {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+  font-size: 24px;
+}
+
+.azul .card-icone {
+  background: #e1f4fa;
+}
+
+.verde .card-icone {
+  background: #e2f8eb;
+}
+
+.roxo .card-icone {
+  background: #f0e9fc;
+}
+
+.vermelho .card-icone {
+  background: #ffe8e8;
+}
+
+
+/* =========================
+   PAINÉIS INFERIORES
+========================= */
+
+.area-inferior {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.painel {
+  padding: 25px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+
+  box-shadow: 0 10px 25px rgba(22, 60, 80, 0.07);
+
+  animation: aparecerDeBaixo 0.8s ease-out both;
+
+  transition: transform 0.3s ease;
+}
+
+.painel:hover {
+  transform: translateY(-5px);
+}
+
+.painel-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.painel h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.painel p {
+  color: #6c858d;
+  font-size: 13px;
+}
+
+.painel-topo button {
+  border: none;
+  background: #e9f7fa;
+
+  color: #1686a7;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+
+/* MEDICAMENTOS */
+
+.lista-medicamentos {
+  margin-top: 15px;
+}
+
+.medicamento {
+  padding: 14px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  border-bottom: 1px solid #e8f0f2;
+
+  transition: transform 0.3s ease;
+}
+
+.medicamento:hover {
+  transform: translateX(8px);
+}
+
+.medicamento:last-child {
+  border-bottom: none;
+}
+
+.horario {
+  padding: 8px;
+
+  border-radius: 10px;
+
+  background: #e8f6fa;
+  color: #1686a7;
+
+  font-weight: bold;
+}
+
+.medicamento strong,
+.medicamento p {
+  margin: 0;
+}
+
+.check {
+  margin-left: auto;
+
+  width: 35px;
+  height: 35px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #e3f8ec;
+  color: #24a66a;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.check:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+
+/* CONSULTA */
+
+.consulta-info {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.data-consulta {
+  width: 70px;
+  height: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #1686a7,
+    #24a66a
+  );
+
+  color: white;
+}
+
+.data-consulta strong {
+  font-size: 25px;
+}
+
+.data-consulta span {
+  font-size: 12px;
+}
+
+.consulta-info h3,
+.consulta-info p {
+  margin: 4px 0;
+}
+
+.botao-consulta {
+  width: 100%;
+
+  margin-top: 25px;
+  padding: 12px;
+
+  border: 2px solid #1686a7;
+  border-radius: 10px;
+
+  background: transparent;
+  color: #1686a7;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.botao-consulta:hover {
+  background: #1686a7;
+  color: white;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   BOTÃO DE EMERGÊNCIA
+========================= */
+
+.emergencia {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+z-index: 999;
+  padding: 14px 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #e53e3e,
+    #c53030
+  );
+
+  color: white;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(229, 62, 62, 0.3);
+
+  animation: pulsarEmergencia 2s infinite;
+
+  transition: transform 0.3s ease;
+}
+
+.emergencia:hover {
+  transform: scale(1.08);
+}
+
+.emergencia span {
+  font-size: 25px;
+}
+
+.emergencia div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.emergencia small {
+  opacity: 0.8;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes entradaHome {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes entradaMenu {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aparecerDeCima {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerDeBaixo {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes pulsarEmergencia {
+  0%,
+  100% {
+    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 10px 40px rgba(229, 62, 62, 0.6);
+  }
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1100px) {
+  .cards-resumo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .area-inferior {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 80px;
+    padding: 20px 10px;
+  }
+
+  .logo span,
+  .menu button span,
+  .ajuda div {
+    display: none;
+  }
+
+  .dashboard {
+    padding: 20px;
+  }
+
+  .busca {
+    width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .menu {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .menu button {
+    white-space: nowrap;
+  }
+
+  .cards-resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .busca {
+    width: 100%;
+  }
+
+  .boas-vindas {
+    padding: 25px;
+  }
+
+  .ilustracao-saude {
+    display: none;
+  }
+
+  .emergencia {
+    right: 15px;
+    bottom: 15px;
+  }
+}

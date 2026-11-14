@@ -1,0 +1,385 @@
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #d9f1fa,
+    #dff5e9,
+    #cfe8f0,
+    #ffffff
+  );
+
+  background-size: 400% 400%;
+  animation: fundoAnimado 12s ease infinite;
+}
+
+@keyframes fundoAnimado {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+.login {
+  width: 350px;
+  padding: 35px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 15px 40px rgba(27, 91, 104, 0.18);
+
+  position: relative;
+  z-index: 2;
+
+  animation: aparecer 0.8s ease-out;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    width 0.4s ease;
+}
+
+/* Caixa reage ao mouse */
+.login:hover {
+  transform: translateY(-8px) rotate(0.3deg);
+  box-shadow: 0 25px 55px rgba(22, 134, 167, 0.25);
+}
+
+
+
+
+.login h1 {
+  text-align: center;
+  color: #167a9b;
+  margin-bottom: 8px;
+
+  animation: tituloFlutuar 3s ease-in-out infinite;
+}
+
+.login p {
+  text-align: center;
+  color: #5d7479;
+  margin-bottom: 25px;
+}
+
+@keyframes tituloFlutuar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+.login label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #2d626d;
+}
+
+.login input {
+  width: 100%;
+  padding: 13px;
+  box-sizing: border-box;
+
+  border: 2px solid #d7e7ea;
+  border-radius: 12px;
+  background-color: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Reação ao passar o mouse */
+.login input:hover {
+  border-color: #7bc5d5;
+}
+
+/* Reação ao clicar */
+.login input:focus {
+  transform: translateX(6px) scale(1.02);
+  border-color: #2698ba;
+  background-color: #f7fdff;
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(38, 152, 186, 0.12),
+    0 8px 20px rgba(38, 152, 186, 0.1);
+}
+
+
+
+
+.login button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(90deg, #1686a7, #24a66a);
+  background-size: 200% auto;
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-position 0.5s ease;
+}
+
+/* Movimento do botão */
+.login button:hover {
+  transform: translateY(-4px) scale(1.03);
+  background-position: right center;
+
+  box-shadow: 0 12px 25px rgba(22, 134, 167, 0.3);
+}
+
+/* Efeito ao clicar */
+.login button:active {
+  transform: translateY(1px) scale(0.95);
+}
+
+/* Brilho atravessando o botão */
+.login button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.login button:hover::before {
+  left: 130%;
+}
+
+
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+.decoracao,
+.icone-saude {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Configuração dos círculos */
+.circulo {
+  border-radius: 50%;
+  opacity: 0.35;
+  filter: blur(1px);
+}
+
+/* Círculo azul grande */
+.circulo1 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #53c5ed, #bce9f7);
+  top: -80px;
+  left: -70px;
+
+  animation: flutuar1 8s ease-in-out infinite;
+}
+
+/* Círculo verde */
+.circulo2 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #54d694, #c5f1da);
+  bottom: -70px;
+  right: -60px;
+
+  animation: flutuar2 10s ease-in-out infinite;
+}
+
+/* Bolha azul menor */
+.circulo3 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #65c9e8, #d6f3fc);
+  top: 18%;
+  right: 12%;
+
+  animation: flutuar3 6s ease-in-out infinite;
+}
+
+
+.icone-saude {
+  font-size: 45px;
+  font-weight: bold;
+  opacity: 0.25;
+
+  animation: flutuarIcone 6s ease-in-out infinite;
+}
+
+.cruz1 {
+  top: 18%;
+  left: 20%;
+  color: #1686a7;
+}
+
+.cruz2 {
+  bottom: 15%;
+  left: 12%;
+  color: #24a66a;
+  font-size: 35px;
+  animation-delay: 2s;
+}
+
+.cruz3 {
+  top: 65%;
+  right: 10%;
+  color: #167a9b;
+  font-size: 28px;
+  animation-delay: 1s;
+}
+
+
+
+
+@keyframes flutuar1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(35px, 25px) scale(1.08);
+  }
+}
+
+@keyframes flutuar2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-30px, -25px) scale(0.95);
+  }
+}
+
+@keyframes flutuar3 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(20deg);
+  }
+}
+
+@keyframes flutuarIcone {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+
+
+
+/* A caixa aumenta suavemente no cadastro */
+.login.cadastro {
+  width: 380px;
+}
+
+/* Formulário entra com animação */
+.conteudo-formulario {
+  animation: trocarFormulario 0.5s ease;
+}
+
+@keyframes trocarFormulario {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Botão para trocar entre Login e Cadastro */
+.trocar {
+  background: transparent !important;
+  color: #1686a7 !important;
+  border: 2px solid #1686a7 !important;
+
+  margin-top: 18px !important;
+  padding: 12px !important;
+
+  box-shadow: none !important;
+}
+
+.trocar:hover {
+  background: linear-gradient(
+    90deg,
+    #1686a7,
+    #24a66a
+  ) !important;
+
+  color: white !important;
+  border-color: transparent !important;
+}

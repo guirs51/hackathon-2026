@@ -1,0 +1,694 @@
+.lista-completa {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .item-medicamento {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  
+    padding: 22px 25px;
+  
+    background: #ffffff;
+    border: 2px solid #dbeafe;
+    border-radius: 20px;
+  
+    box-shadow: 0 8px 25px rgba(19, 69, 92, 0.08);
+  
+    overflow: hidden;
+  
+    opacity: 0;
+    animation: aparecerMedicamento 0.6s ease forwards;
+  
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background 0.4s ease;
+  }
+  
+  .item-medicamento::before {
+    content: "";
+  
+    position: absolute;
+  
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+  
+    width: 5px;
+  
+    background: linear-gradient(
+      to bottom,
+      #1686a7,
+      #24a66a
+    );
+  
+    border-radius: 0 10px 10px 0;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .item-medicamento:hover {
+    transform: translateX(8px) translateY(-3px);
+  
+    border-color: #8ed9e7;
+  
+    box-shadow:
+      0 16px 35px rgba(19, 69, 92, 0.13);
+  }
+  
+  .item-medicamento:hover::before {
+    top: 10%;
+    bottom: 10%;
+  }
+  
+  .item-medicamento.tomado {
+    background: linear-gradient(
+      135deg,
+      #f0fdf4,
+      #ffffff
+    );
+  
+    border-color: #86efac;
+  
+    animation:
+      aparecerMedicamento 0.6s ease forwards,
+      medicamentoTomado 0.5s ease;
+  }
+  
+  .item-medicamento.tomado::before {
+    background: #24a66a;
+  }
+  
+  .horario-grande {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 105px;
+  
+    padding: 13px 16px;
+  
+    background: #e5f6fb;
+    color: #087b9d;
+  
+    border-radius: 14px;
+  
+    font-size: 17px;
+    font-weight: bold;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .item-medicamento.tomado .horario-grande {
+    background: #dcfce7;
+    color: #16864d;
+  
+    animation: pulsarHorario 0.5s ease;
+  }
+  
+  .info-remedio {
+    flex: 1;
+  }
+  
+  .nome-remedio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .info-remedio h3 {
+    margin: 0 0 6px;
+  
+    color: #12304a;
+    font-size: 18px;
+  }
+  
+  .info-remedio p {
+    margin: 0;
+  
+    color: #6b7f89;
+  }
+  
+  .status-tomado {
+    padding: 5px 10px;
+  
+    background: #dcfce7;
+    color: #16864d;
+  
+    border-radius: 20px;
+  
+    font-size: 12px;
+    font-weight: bold;
+  
+    animation: aparecerStatus 0.4s ease;
+  }
+  
+  .botao-tomar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  
+    min-width: 180px;
+  
+    padding: 13px 20px;
+  
+    border: none;
+    border-radius: 13px;
+  
+    background: linear-gradient(
+      90deg,
+      #1686a7,
+      #24a66a
+    );
+  
+    color: white;
+  
+    font-size: 14px;
+    font-weight: bold;
+  
+    cursor: pointer;
+  
+    box-shadow:
+      0 8px 20px rgba(22, 134, 167, 0.2);
+  
+    transition: all 0.3s ease;
+  }
+  
+  .botao-tomar:hover {
+    transform: translateY(-3px) scale(1.03);
+  
+    box-shadow:
+      0 12px 25px rgba(22, 134, 167, 0.3);
+  }
+  
+  .botao-tomar:active {
+    transform: scale(0.94);
+  }
+  
+  .tomado-botao {
+    background: linear-gradient(
+      90deg,
+      #24a66a,
+      #36c879
+    );
+  
+    animation: botaoConfirmado 0.5s ease;
+  }
+  
+  .icone-botao {
+    display: inline-flex;
+  
+    font-size: 18px;
+  
+    transition: transform 0.3s ease;
+  }
+  
+  .tomado-botao .icone-botao {
+    animation: girarCheck 0.5s ease;
+  }
+  
+  .resumo-medicamentos {
+    margin-bottom: 25px;
+    padding: 22px 25px;
+  
+    background: white;
+  
+    border: 2px solid #dbeafe;
+    border-radius: 20px;
+  
+    box-shadow:
+      0 8px 25px rgba(19, 69, 92, 0.08);
+  
+    animation: aparecerResumo 0.7s ease;
+  }
+  
+  .resumo-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .resumo-informacoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .resumo-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 58px;
+    height: 58px;
+  
+    background: #e5f6fb;
+  
+    border-radius: 18px;
+  
+    font-size: 28px;
+  
+    animation: flutuarRemedio 3s ease-in-out infinite;
+  }
+  
+  .resumo-texto h2 {
+    margin: 0 0 5px;
+  
+    color: #12304a;
+    font-size: 18px;
+  }
+  
+  .resumo-texto p {
+    margin: 0;
+  
+    color: #6b7f89;
+  }
+  
+  .porcentagem {
+    color: #1686a7;
+  
+    font-size: 26px;
+    font-weight: bold;
+  
+    transition: all 0.4s ease;
+  }
+  
+  .barra-progresso {
+    width: 100%;
+    height: 11px;
+  
+    margin-top: 18px;
+  
+    background: #eaf1f5;
+  
+    border-radius: 20px;
+  
+    overflow: hidden;
+  }
+  
+  .progresso-preenchido {
+    height: 100%;
+  
+    background: linear-gradient(
+      90deg,
+      #1686a7,
+      #24a66a
+    );
+  
+    border-radius: inherit;
+  
+    transition: width 0.6s ease;
+  
+    position: relative;
+  }
+  
+  .progresso-preenchido::after {
+    content: "";
+  
+    position: absolute;
+  
+    top: 0;
+    left: -50%;
+  
+    width: 40%;
+    height: 100%;
+  
+    background: rgba(255, 255, 255, 0.35);
+  
+    animation: brilhoProgresso 2s linear infinite;
+  }
+  
+  .mensagem-sucesso {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    margin-top: 16px;
+    padding: 14px;
+  
+    background: #e9f9f0;
+    color: #16864d;
+  
+    border-radius: 13px;
+  
+    font-weight: bold;
+  
+    animation: aparecerSucesso 0.6s ease;
+  }
+  
+  .mensagem-sucesso span {
+    font-size: 22px;
+  
+    animation: comemorar 1s ease-in-out infinite;
+  }
+  
+  .area-adicionar-medicamento {
+    margin-bottom: 25px;
+  
+    animation: abrirFormularioMedicamento 0.6s ease forwards;
+  }
+  
+  .formulario-medicamento {
+    position: relative;
+  
+    padding: 30px;
+  
+    background: linear-gradient(
+      135deg,
+      #ffffff,
+      #f0f9ff
+    );
+  
+    border: 2px solid #dbeafe;
+    border-radius: 24px;
+  
+    box-shadow:
+      0 15px 40px rgba(19, 69, 92, 0.08);
+  
+    overflow: hidden;
+  }
+  
+  .formulario-medicamento::before {
+    content: "💊";
+  
+    position: absolute;
+  
+    top: -25px;
+    right: 25px;
+  
+    font-size: 100px;
+  
+    opacity: 0.06;
+  
+    animation: flutuarIconeMedicamento 4s ease-in-out infinite;
+  }
+  
+  .formulario-medicamento h2 {
+    position: relative;
+    z-index: 1;
+  
+    margin: 0 0 25px;
+  
+    color: #12304a;
+    font-size: 24px;
+  }
+  
+  .campos-medicamento {
+    position: relative;
+    z-index: 1;
+  
+    display: grid;
+  
+    grid-template-columns: repeat(3, 1fr);
+  
+    gap: 18px;
+  }
+  
+  .campo-medicamento {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 8px;
+  }
+  
+  .campo-medicamento label {
+    color: #36546c;
+  
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .campo-medicamento input {
+    width: 100%;
+  
+    box-sizing: border-box;
+  
+    padding: 14px 16px;
+  
+    background: #ffffff;
+  
+    border: 2px solid #dbeafe;
+    border-radius: 13px;
+  
+    outline: none;
+  
+    color: #12304a;
+  
+    font-size: 14px;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .campo-medicamento input:hover {
+    border-color: #8ed9e7;
+  }
+  
+  .campo-medicamento input:focus {
+    border-color: #1686a7;
+  
+    box-shadow:
+      0 0 0 4px rgba(22, 134, 167, 0.1);
+  
+    transform: translateY(-2px);
+  }
+  
+  .botoes-medicamento {
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+  
+    gap: 12px;
+  
+    margin-top: 25px;
+  }
+  
+  .botao-cancelar {
+    padding: 13px 20px;
+  
+    background: #f1f5f9;
+  
+    border: none;
+    border-radius: 13px;
+  
+    color: #64748b;
+  
+    font-size: 14px;
+    font-weight: bold;
+  
+    cursor: pointer;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .botao-cancelar:hover {
+    background: #e2e8f0;
+  
+    transform: translateY(-2px);
+  }
+  
+  .novo-medicamento {
+    animation: adicionarMedicamento 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  
+  @keyframes aparecerMedicamento {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes adicionarMedicamento {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.85);
+    }
+  
+    60% {
+      opacity: 1;
+      transform: translateY(5px) scale(1.03);
+    }
+  
+    80% {
+      transform: translateY(-2px) scale(0.99);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes medicamentoTomado {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.02);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulsarHorario {
+    50% {
+      transform: scale(1.08);
+    }
+  }
+  
+  @keyframes aparecerStatus {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes botaoConfirmado {
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes girarCheck {
+    from {
+      transform: rotate(-90deg) scale(0.5);
+    }
+  
+    to {
+      transform: rotate(0) scale(1);
+    }
+  }
+  
+  @keyframes aparecerResumo {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes flutuarRemedio {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-5deg);
+    }
+  
+    50% {
+      transform: translateY(-7px) rotate(5deg);
+    }
+  }
+  
+  @keyframes brilhoProgresso {
+    from {
+      left: -50%;
+    }
+  
+    to {
+      left: 120%;
+    }
+  }
+  
+  @keyframes aparecerSucesso {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes comemorar {
+    0%,
+    100% {
+      transform: rotate(-10deg) scale(1);
+    }
+  
+    50% {
+      transform: rotate(10deg) scale(1.2);
+    }
+  }
+  
+  @keyframes abrirFormularioMedicamento {
+    from {
+      opacity: 0;
+      transform: translateY(-25px) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes flutuarIconeMedicamento {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-8deg);
+    }
+  
+    50% {
+      transform: translateY(-15px) rotate(8deg);
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .campos-medicamento {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .item-medicamento {
+      flex-wrap: wrap;
+    }
+  
+    .botao-tomar {
+      width: 100%;
+    }
+  
+    .resumo-texto {
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .formulario-medicamento {
+      padding: 20px;
+    }
+  
+    .botoes-medicamento {
+      flex-direction: column;
+    }
+  
+    .botoes-medicamento button {
+      width: 100%;
+    }
+  }
